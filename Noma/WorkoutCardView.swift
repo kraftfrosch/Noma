@@ -11,79 +11,92 @@ struct WorkoutCardView: View {
     let workout: Workout
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(workout.title)
-                        .font(.headline)
-                        .foregroundStyle(.primary)
-                    
-                    Text(categoryDisplay)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .top, spacing: 12) {
+                Text(workout.title)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
                 
                 Spacer()
                 
+                HStack(spacing: 8) {
+                    Text("\(workout.duration) min")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+
+                    Text(categoryMainType)
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(categoryColor, in: Capsule())
+                    
+                }
+                
                 if workout.completed {
                     Image(systemName: "checkmark.circle.fill")
-                        .font(.title3)
+                        .font(.body)
                         .foregroundStyle(.green)
                 }
             }
             
-            Divider()
-            
-            HStack(spacing: 20) {
-                MetricView(icon: "clock", value: "\(workout.duration) min")
-                MetricView(icon: "figure.mixed.cardio", value: exerciseCountDisplay)
-            }
+            Text(secondaryInfo)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
         }
         .padding(16)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
         .contentShape(Rectangle())
     }
     
-    private var categoryDisplay: String {
+    private var categoryMainType: String {
         switch workout.category {
-        case .gym(let subcategory):
-            return "Gym • \(subcategoryName(subcategory.rawValue))"
-        case .run(let subcategory):
-            return "Run • \(subcategoryName(subcategory.rawValue))"
-        case .bike(let subcategory):
-            return "Bike • \(subcategoryName(subcategory.rawValue))"
-        case .swim(let subcategory):
-            return "Swim • \(subcategoryName(subcategory.rawValue))"
-        case .hiit(let subcategory):
-            return "HIIT • \(subcategoryName(subcategory.rawValue))"
+        case .gym: return "Gym"
+        case .run: return "Run"
+        case .bike: return "Bike"
+        case .swim: return "Swim"
+        case .hiit: return "HIIT"
         }
     }
     
-    private func subcategoryName(_ rawValue: String) -> String {
-        rawValue.replacingOccurrences(of: "_", with: " ").capitalized
+    private var categoryColor: Color {
+        switch workout.category {
+        case .gym: return .orange
+        case .run: return .blue
+        case .bike: return .purple
+        case .swim: return .cyan
+        case .hiit: return .red
+        }
     }
     
-    private var exerciseCountDisplay: String {
-        let totalExercises = workout.exerciseRounds.reduce(0) { sum, round in
+    private var secondaryInfo: String {
+        let subcategory: String
+        switch workout.category {
+        case .gym(let sub):
+            subcategory = formatSubcategory(sub.rawValue)
+        case .run(let sub):
+            subcategory = formatSubcategory(sub.rawValue)
+        case .bike(let sub):
+            subcategory = formatSubcategory(sub.rawValue)
+        case .swim(let sub):
+            subcategory = formatSubcategory(sub.rawValue)
+        case .hiit(let sub):
+            subcategory = formatSubcategory(sub.rawValue)
+        }
+        
+        let totalRounds = workout.exerciseRounds.reduce(0) { sum, round in
+            sum + round.rounds
+        }
+        
+        let uniqueExercises = workout.exerciseRounds.reduce(0) { sum, round in
             sum + round.exercises.count
         }
-        return "\(totalExercises) exercise\(totalExercises == 1 ? "" : "s")"
+        
+        return "\(subcategory) • \(totalRounds) round\(totalRounds == 1 ? "" : "s") with \(uniqueExercises) different exercise\(uniqueExercises == 1 ? "" : "s")"
     }
-}
-
-private struct MetricView: View {
-    let icon: String
-    let value: String
     
-    var body: some View {
-        HStack(spacing: 6) {
-            Image(systemName: icon)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-            Text(value)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-        }
+    private func formatSubcategory(_ rawValue: String) -> String {
+        rawValue.replacingOccurrences(of: "_", with: " ").capitalized
     }
 }
 

@@ -22,23 +22,25 @@ struct WorkoutPlanView: View {
                 )
             } else {
                 ScrollView {
-                    VStack(spacing: 20) {
-                        // Weekly Overview at top
-                        WeeklyOverviewComponent(workouts: dataManager.workouts)
-                            .padding(.horizontal, 16)
-                            .padding(.top, 8)
-                        
-                        // Grouped workouts by date
-                        ForEach(groupedDates, id: \.date) { dateGroup in
-                            WorkoutDateSection(
-                                date: dateGroup.date,
-                                workouts: dateGroup.workouts,
-                                dataManager: dataManager
-                            )
-                            .padding(.horizontal, 16)
+                    LazyVStack(spacing: 20, pinnedViews: [.sectionHeaders]) {
+                        Section {
+                            // Grouped workouts by date
+                            ForEach(groupedDates, id: \.date) { dateGroup in
+                                WorkoutDateSection(
+                                    date: dateGroup.date,
+                                    workouts: dateGroup.workouts,
+                                    dataManager: dataManager
+                                )
+                                .padding(.horizontal, 16)
+                            }
+                            .padding(.bottom, 32)
+                        } header: {
+                            WeeklyOverviewComponent(workouts: dataManager.workouts, isCollapsed: true)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(.regularMaterial)
                         }
                     }
-                    .padding(.bottom, 32)
                 }
                 .background(Color(.systemGroupedBackground))
                 .navigationTitle("Plan")
@@ -50,20 +52,14 @@ struct WorkoutPlanView: View {
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = [.withFullDate, .withDashSeparatorInDate]
         
-        // Get all dates from workouts
-        let workoutDates = Set(dataManager.workouts.compactMap { workout in
-            dateFormatter.date(from: workout.date)
-        })
-        
-        // Get date range for the planning horizon
+        // Get date range for the planning horizon starting from today
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
-        let startDate = calendar.date(byAdding: .day, value: -7, to: today) ?? today
         let endDate = calendar.date(byAdding: .day, value: 14, to: today) ?? today
         
         // Generate all dates in range
         var allDates: [Date] = []
-        var currentDate = startDate
+        var currentDate = today
         while currentDate <= endDate {
             allDates.append(currentDate)
             currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate

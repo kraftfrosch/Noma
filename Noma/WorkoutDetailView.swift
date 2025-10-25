@@ -108,12 +108,6 @@ struct ExerciseRoundView: View {
                     }
                 }
                 
-                if !round.explanation.isEmpty {
-                    Text(round.explanation)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-                
                 if round.restBetweenRounds > 0 {
                     Text("Rest: \(formatTime(round.restBetweenRounds)) between rounds")
                         .font(.caption)
