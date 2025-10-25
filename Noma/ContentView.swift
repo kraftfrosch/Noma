@@ -13,8 +13,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             Tab("Plan", systemImage: "calendar") {
-                WorkoutPlanPlaceholder()
-                    .navigationTitle("Plan")
+                WorkoutPlanView()
             }
 
             Tab("Results", systemImage: "chart.bar.fill") {
