@@ -1,5 +1,230 @@
 [
   {
+    "id": "workout-pre-5",
+    "date": "2025-10-19",
+    "timeSlot": "morning",
+    "title": "Volume Legs",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_legs"
+    },
+    "duration": 50,
+    "completed": true,
+    "explanation": "Building leg strength and endurance with a focus on progressive overload. This session includes compound movements and unilateral work for balanced development.",
+    "exerciseRounds": [
+      {
+        "id": "round-pre5-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 120,
+        "explanation": "Compound leg movements focusing on strength and hypertrophy.",
+        "exercises": [
+          {
+            "id": "ex-pre5-1-1",
+            "name": "Back Squats",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 70
+            },
+            "rest": 45,
+            "explanation": "Primary compound movement for leg development."
+          },
+          {
+            "id": "ex-pre5-1-2",
+            "name": "Romanian Deadlifts",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 50
+            },
+            "rest": 0,
+            "explanation": "Posterior chain development with focus on hamstrings and glutes."
+          }
+        ]
+      },
+      {
+        "id": "round-pre5-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Accessory leg movements for balanced development.",
+        "exercises": [
+          {
+            "id": "ex-pre5-2-1",
+            "name": "Walking Lunges",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 20
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 15
+            },
+            "rest": 30,
+            "explanation": "Unilateral leg work for stability and strength."
+          },
+          {
+            "id": "ex-pre5-2-2",
+            "name": "Leg Press",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 15
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 100
+            },
+            "rest": 0,
+            "explanation": "Additional volume for leg development with controlled movement."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-pre-3",
+    "date": "2025-10-21",
+    "timeSlot": "evening",
+    "title": "Base Run Z2",
+    "category": {
+      "type": "run",
+      "subcategory": "base_z2"
+    },
+    "duration": 45,
+    "completed": true,
+    "explanation": "Aerobic base building run in Zone 2 heart rate. This builds cardiovascular endurance and promotes active recovery.",
+    "exerciseRounds": [
+      {
+        "id": "round-pre3-1",
+        "order": 1,
+        "rounds": 1,
+        "restBetweenRounds": 0,
+        "explanation": "Continuous aerobic effort to build base fitness.",
+        "exercises": [
+          {
+            "id": "ex-pre3-1-1",
+            "name": "Easy Run",
+            "order": 1,
+            "volume": {
+              "type": "distance",
+              "kilometers": 7
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 138
+            },
+            "rest": null,
+            "explanation": "Zone 2 running at conversational pace for aerobic development."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-pre-1",
+    "date": "2025-10-22",
+    "timeSlot": "evening",
+    "title": "Volume Pull",
+    "category": {
+      "type": "hiit",
+      "subcategory": "cardio"
+    },
+    "duration": 45,
+    "completed": true,
+    "explanation": "Upper body pulling movements to build back strength and muscle. This workout prepares you for the upcoming push session.",
+    "exerciseRounds": [
+      {
+        "id": "round-pre1-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull movements combined with leg work for efficient training.",
+        "exercises": [
+          {
+            "id": "ex-pre1-1-1",
+            "name": "Pull-Ups",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Bodyweight vertical pulling for back and bicep development."
+          },
+          {
+            "id": "ex-pre1-1-2",
+            "name": "Front Squats",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 55
+            },
+            "rest": 0,
+            "explanation": "Quad-focused squat variation for leg strength."
+          }
+        ]
+      },
+      {
+        "id": "round-pre1-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Additional pulling volume for back development.",
+        "exercises": [
+          {
+            "id": "ex-pre1-2-1",
+            "name": "Bent-Over Rows",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 50
+            },
+            "rest": 30,
+            "explanation": "Horizontal pulling for upper back thickness."
+          },
+          {
+            "id": "ex-pre1-2-2",
+            "name": "Face Pulls",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 15
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 15
+            },
+            "rest": 0,
+            "explanation": "Rear delt and upper back work for shoulder health."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "workout-1",
     "date": "2025-10-24",
     "timeSlot": "evening",
