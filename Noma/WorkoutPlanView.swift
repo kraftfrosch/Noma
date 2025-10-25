@@ -25,21 +25,29 @@ struct WorkoutPlanView: View {
                 )
             } else {
                 ScrollView {
-                    LazyVStack(spacing: 20) {
-                        WeeklyOverviewComponent(workouts: dataManager.workouts)
-                            .padding(.horizontal, 16)
+                    LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                        Section {
+                            LazyVStack(spacing: 20) {
+                                // Grouped workouts by date
+                                ForEach(groupedDates, id: \.date) { dateGroup in
+                                    WorkoutDateSection(
+                                        date: dateGroup.date,
+                                        workouts: dateGroup.workouts,
+                                        dataManager: dataManager
+                                    )
+                                    .padding(.horizontal, 16)
+                                }
+                                .padding(.bottom, 32)
+                            }
                             .padding(.top, 16)
-                        
-                        // Grouped workouts by date
-                        ForEach(groupedDates, id: \.date) { dateGroup in
-                            WorkoutDateSection(
-                                date: dateGroup.date,
-                                workouts: dateGroup.workouts,
-                                dataManager: dataManager
-                            )
-                            .padding(.horizontal, 16)
+                        } header: {
+                            VStack(spacing: 0) {
+                                WeeklyOverviewComponent(workouts: dataManager.workouts)
+                                    .padding(.horizontal, 16)
+                                    .padding(.vertical, 8)
+                            }
+                            .background(.clear)
                         }
-                        .padding(.bottom, 32)
                     }
                 }
                 .background(Color(.systemGroupedBackground))

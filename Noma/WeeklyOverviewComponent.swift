@@ -24,7 +24,6 @@ struct WeeklyOverviewComponent: View {
                     date: date,
                     workouts: workoutsFor(date: date),
                     isToday: Calendar.current.isDateInToday(date),
-                    isCompact: false
                 )
             }
         }
@@ -45,18 +44,21 @@ private struct DayIndicatorView: View {
     let date: Date
     let workouts: [Workout]
     let isToday: Bool
-    let isCompact: Bool
     
     var body: some View {
-        if isCompact {
+        VStack(spacing: 6) {
+            Text(dayLetter)
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(isToday ? .primary : .secondary)
+            
             ZStack {
-                RoundedRectangle(cornerRadius: 4)
+                RoundedRectangle(cornerRadius: 6)
                     .fill(Color.secondary.opacity(0.1))
-                    .frame(width: 24, height: 60)
+                    .frame(width: 36, height: 60)
                 
                 if workouts.isEmpty {
                     Image(systemName: "figure.mind.and.body")
-                        .font(.system(size: 12))
+                        .font(.system(size: 16))
                         .foregroundStyle(.secondary.opacity(0.5))
                 } else {
                     VStack(spacing: 0) {
@@ -64,51 +66,18 @@ private struct DayIndicatorView: View {
                         workoutIndicator(for: .daytime)
                         workoutIndicator(for: .evening)
                     }
-                    .frame(width: 24, height: 60)
-                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .frame(width: 36, height: 60)
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
                 }
                 
                 if isToday {
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.accentColor, lineWidth: 2)
-                        .frame(width: 24, height: 60)
-                }
-            }
-            .frame(maxWidth: .infinity)
-        } else {
-            VStack(spacing: 6) {
-                Text(dayLetter)
-                    .font(.caption2.weight(.medium))
-                    .foregroundStyle(isToday ? .primary : .secondary)
-                
-                ZStack {
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(Color.secondary.opacity(0.1))
+                        .stroke(Color.accentColor, lineWidth: 2)
                         .frame(width: 36, height: 60)
-                    
-                    if workouts.isEmpty {
-                        Image(systemName: "figure.mind.and.body")
-                            .font(.system(size: 16))
-                            .foregroundStyle(.secondary.opacity(0.5))
-                    } else {
-                        VStack(spacing: 0) {
-                            workoutIndicator(for: .morning)
-                            workoutIndicator(for: .daytime)
-                            workoutIndicator(for: .evening)
-                        }
-                        .frame(width: 36, height: 60)
-                        .clipShape(RoundedRectangle(cornerRadius: 6))
-                    }
-                    
-                    if isToday {
-                        RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color.accentColor, lineWidth: 2)
-                            .frame(width: 36, height: 60)
-                    }
                 }
             }
-            .frame(maxWidth: .infinity)
         }
+        .frame(maxWidth: .infinity)
     }
     
     @ViewBuilder
