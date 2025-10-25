@@ -12,12 +12,12 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            Tab("Plan", systemImage: "list.bullet.rectangle") {
+            Tab("Plan", systemImage: "calendar") {
                 WorkoutPlanPlaceholder()
                     .navigationTitle("Plan")
             }
 
-            Tab("Results", systemImage: "chart.bar") {
+            Tab("Results", systemImage: "chart.bar.fill") {
                 ResultsPlaceholder()
                     .navigationTitle("Results")
             }
@@ -27,7 +27,7 @@ struct ContentView: View {
                     .navigationTitle("Profile")
             }
 
-            Tab("AI", systemImage: "sparkle.magnifyingglass", role: .search) {
+            Tab("AI", systemImage: "sparkles", role: .search) {
                 NavigationStack {
                     AIActionPlaceholder()
                         .navigationTitle("Coach")
