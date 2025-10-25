@@ -26,11 +26,17 @@ struct WorkoutCardView: View {
 
                     Text(categoryMainType)
                         .font(.caption.weight(.semibold))
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(categoryColor, in: Capsule())
-                    
+                        .foregroundStyle(categoryColor)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(
+                            categoryColor.opacity(0.12),
+                            in: RoundedRectangle(cornerRadius: 6)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .strokeBorder(categoryColor.opacity(0.2), lineWidth: 0.5)
+                        )
                 }
                 
                 if workout.completed {
@@ -61,11 +67,11 @@ struct WorkoutCardView: View {
     
     private var categoryColor: Color {
         switch workout.category {
-        case .gym: return .orange
-        case .run: return .blue
-        case .bike: return .purple
-        case .swim: return .cyan
-        case .hiit: return .red
+        case .gym: return Color(red: 1.0, green: 0.58, blue: 0.0) // Vibrant orange
+        case .run: return Color(red: 0.0, green: 0.48, blue: 1.0) // Vibrant blue
+        case .bike: return Color(red: 0.69, green: 0.32, blue: 0.87) // Vibrant purple
+        case .swim: return Color(red: 0.0, green: 0.78, blue: 0.85) // Vibrant cyan
+        case .hiit: return Color(red: 1.0, green: 0.23, blue: 0.19) // Vibrant red
         }
     }
     
