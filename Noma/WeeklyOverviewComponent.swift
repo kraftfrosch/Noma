@@ -10,21 +10,38 @@ import SwiftUI
 struct WeeklyOverviewComponent: View {
     let workouts: [Workout]
     let startOfWeek: Date
+    @Binding var selectedDate: Date
+    var onSelectDate: (Date) -> Void
     
-    init(workouts: [Workout], startOfWeek: Date? = nil) {
+    init(
+        workouts: [Workout],
+        selectedDate: Binding<Date>,
+        startOfWeek: Date? = nil,
+        onSelectDate: @escaping (Date) -> Void
+    ) {
         self.workouts = workouts
+        self._selectedDate = selectedDate
         self.startOfWeek = startOfWeek ?? Calendar.current.startOfWeek(for: Date())
+        self.onSelectDate = onSelectDate
     }
     
     var body: some View {
         HStack(spacing: 8) {
             ForEach(0..<7, id: \.self) { dayOffset in
                 let date = Calendar.current.date(byAdding: .day, value: dayOffset, to: startOfWeek) ?? startOfWeek
-                DayIndicatorView(
-                    date: date,
-                    workouts: workoutsFor(date: date),
-                    isToday: Calendar.current.isDateInToday(date),
-                )
+                let isSelected = Calendar.current.isDate(date, inSameDayAs: selectedDate)
+
+                Button {
+                    onSelectDate(date)
+                } label: {
+                    DayIndicatorView(
+                        date: date,
+                        workouts: workoutsFor(date: date),
+                        isToday: Calendar.current.isDateInToday(date),
+                        isSelected: isSelected
+                    )
+                }
+                .buttonStyle(.plain)
             }
         }
         .padding(16)
@@ -44,16 +61,17 @@ private struct DayIndicatorView: View {
     let date: Date
     let workouts: [Workout]
     let isToday: Bool
+    let isSelected: Bool
     
     var body: some View {
         VStack(spacing: 6) {
             Text(dayLetter)
                 .font(.caption2.weight(.medium))
-                .foregroundStyle(isToday ? .primary : .secondary)
+                .foregroundStyle(isSelected || isToday ? .primary : .secondary)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.secondary.opacity(0.1))
+                    .fill(indicatorBackground)
                     .frame(width: 36, height: 60)
                 
                 if workouts.isEmpty {
@@ -72,12 +90,19 @@ private struct DayIndicatorView: View {
                 
                 if isToday {
                     RoundedRectangle(cornerRadius: 6)
-                        .stroke(Color.accentColor, lineWidth: 2)
+                        .stroke(Color.accentColor, lineWidth: isSelected ? 3 : 2)
+                        .frame(width: 36, height: 60)
+                } else if isSelected {
+                    RoundedRectangle(cornerRadius: 6)
+                        .stroke(Color.accentColor.opacity(0.6), lineWidth: 2)
                         .frame(width: 36, height: 60)
                 }
             }
         }
         .frame(maxWidth: .infinity)
+        .padding(.vertical, 4)
+        .background(selectionBackground)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
     
     @ViewBuilder
@@ -114,6 +139,18 @@ private struct DayIndicatorView: View {
         formatter.dateFormat = "E"
         return String(formatter.string(from: date).prefix(1))
     }
+    
+    private var selectionBackground: some View {
+        RoundedRectangle(cornerRadius: 8)
+            .fill(isSelected ? Color.accentColor.opacity(0.12) : Color.clear)
+    }
+    
+    private var indicatorBackground: Color {
+        if isSelected {
+            return Color.accentColor.opacity(0.18)
+        }
+        return Color.secondary.opacity(0.1)
+    }
 }
 
 // Calendar extension for getting start of week
@@ -127,33 +164,44 @@ extension Calendar {
     }
 }
 
-#Preview {
-    let sampleWorkouts = [
-        Workout(
-            id: "1",
-            date: "2025-10-27",
-            timeSlot: .evening,
-            title: "Volume Push",
-            category: .gym(.volumePush),
-            duration: 45,
-            completed: false,
-            exerciseRounds: [],
-            explanation: "Test"
-        ),
-        Workout(
-            id: "2",
-            date: "2025-10-28",
-            timeSlot: .morning,
-            title: "Base Run",
-            category: .run(.baseZ2),
-            duration: 50,
-            completed: true,
-            exerciseRounds: [],
-            explanation: "Test"
-        )
-    ]
+private struct WeeklyOverviewPreviewWrapper: View {
+    @State private var selection = Calendar.current.startOfDay(for: Date())
     
-    return WeeklyOverviewComponent(workouts: sampleWorkouts)
+    var body: some View {
+        let sampleWorkouts = [
+            Workout(
+                id: "1",
+                date: "2025-10-27",
+                timeSlot: .evening,
+                title: "Volume Push",
+                category: .gym(.volumePush),
+                duration: 45,
+                completed: false,
+                exerciseRounds: [],
+                explanation: "Test"
+            ),
+            Workout(
+                id: "2",
+                date: "2025-10-28",
+                timeSlot: .morning,
+                title: "Base Run",
+                category: .run(.baseZ2),
+                duration: 50,
+                completed: true,
+                exerciseRounds: [],
+                explanation: "Test"
+            )
+        ]
+        
+        WeeklyOverviewComponent(
+            workouts: sampleWorkouts,
+            selectedDate: $selection,
+            onSelectDate: { selection = Calendar.current.startOfDay(for: $0) }
+        )
         .padding()
+    }
 }
 
+#Preview {
+    WeeklyOverviewPreviewWrapper()
+}
