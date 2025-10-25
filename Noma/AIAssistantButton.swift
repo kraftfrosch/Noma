@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct AIAssistantButton: View {
+    @Binding var isChatActive: Bool
+    @FocusState.Binding var isChatInputFocused: Bool
+    
     var body: some View {
         Menu {
             Button {
-                print("Chat selected")
+                withAnimation {
+                    isChatActive = true
+                    // Delay focus slightly to ensure the text field is rendered
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        isChatInputFocused = true
+                    }
+                }
             } label: {
                 Label("Chat", systemImage: "bubble.left")
             }
@@ -28,8 +37,3 @@ struct AIAssistantButton: View {
         }
     }
 }
-
-#Preview {
-    AIAssistantButton()
-}
-

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct WorkoutDetailView: View {
     let workout: Workout
+    @State private var chatMessage = ""
+    @State private var isChatActive = false
+    @FocusState private var isChatInputFocused: Bool
     
     var body: some View {
         ScrollView {
@@ -59,8 +62,15 @@ struct WorkoutDetailView: View {
         .toolbar(.hidden, for: .tabBar)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                AIAssistantButton()
+                AIAssistantButton(isChatActive: $isChatActive, isChatInputFocused: $isChatInputFocused)
             }
+        }
+        .safeAreaInset(edge: .bottom) {
+            ChatInputView(
+                chatMessage: $chatMessage,
+                isChatActive: $isChatActive,
+                isChatInputFocused: $isChatInputFocused
+            )
         }
     }
     

@@ -23,6 +23,10 @@ struct ContentView: View {
                 ProfilePlaceholder()
                     .navigationTitle("Profile")
             }
+            Tab("Settings", systemImage: "gearshape") {
+                SettingsPlaceholder()
+                    .navigationTitle("Settings")
+            }   
         }
         // Use minimize behavior on supported OS versions; no-op on older versions
         .modifier(TabBarMinimizeIfAvailable())
@@ -90,6 +94,26 @@ private struct ProfilePlaceholder: View {
                 Text("Profile")
                     .font(.title2.weight(.semibold))
                 Text("Athlete preferences and profile will live here.")
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+            .background(.background)
+        }
+    }
+}
+
+private struct SettingsPlaceholder: View {
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 16) {
+                Image(systemName: "gearshape")
+                    .font(.system(size: 44, weight: .regular))
+                    .foregroundStyle(.secondary)
+                Text("Settings")
+                    .font(.title2.weight(.semibold))
+                Text("Settings will live here.")
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.secondary)
             }
