@@ -17,25 +17,15 @@ struct WeeklyOverviewComponent: View {
     }
     
     var body: some View {
-        VStack(spacing: 12) {
-            HStack {
-                Text("This Week")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                
-                Spacer()
-            }
-            
-            HStack(spacing: 8) {
-                ForEach(0..<7, id: \.self) { dayOffset in
-                    let date = Calendar.current.date(byAdding: .day, value: dayOffset, to: startOfWeek) ?? startOfWeek
-                    DayIndicatorView(
-                        date: date,
-                        workouts: workoutsFor(date: date),
-                        isToday: Calendar.current.isDateInToday(date),
-                        isCompact: false
-                    )
-                }
+        HStack(spacing: 8) {
+            ForEach(0..<7, id: \.self) { dayOffset in
+                let date = Calendar.current.date(byAdding: .day, value: dayOffset, to: startOfWeek) ?? startOfWeek
+                DayIndicatorView(
+                    date: date,
+                    workouts: workoutsFor(date: date),
+                    isToday: Calendar.current.isDateInToday(date),
+                    isCompact: false
+                )
             }
         }
         .padding(16)
@@ -60,68 +50,93 @@ private struct DayIndicatorView: View {
     var body: some View {
         if isCompact {
             ZStack {
-                Circle()
-                    .fill(backgroundFill)
-                    .frame(width: 32, height: 32)
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color.secondary.opacity(0.1))
+                    .frame(width: 24, height: 60)
                 
                 if workouts.isEmpty {
-                    Image(systemName: "moon.fill")
-                        .font(.system(size: 8))
-                        .foregroundStyle(.secondary)
+                    Image(systemName: "figure.mind.and.body")
+                        .font(.system(size: 12))
+                        .foregroundStyle(.secondary.opacity(0.5))
                 } else {
-                    VStack(spacing: 1.5) {
-                        ForEach(Array(workouts.prefix(3).enumerated()), id: \.offset) { _, workout in
-                            Circle()
-                                .fill(workout.completed ? Color.green : Color.accentColor)
-                                .frame(width: 3, height: 3)
-                        }
+                    VStack(spacing: 0) {
+                        workoutIndicator(for: .morning)
+                        workoutIndicator(for: .daytime)
+                        workoutIndicator(for: .evening)
                     }
+                    .frame(width: 24, height: 60)
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
                 
                 if isToday {
-                    Circle()
+                    RoundedRectangle(cornerRadius: 4)
                         .stroke(Color.accentColor, lineWidth: 2)
-                        .frame(width: 32, height: 32)
+                        .frame(width: 24, height: 60)
                 }
             }
             .frame(maxWidth: .infinity)
         } else {
-            VStack(spacing: 8) {
+            VStack(spacing: 6) {
                 Text(dayLetter)
                     .font(.caption2.weight(.medium))
                     .foregroundStyle(isToday ? .primary : .secondary)
                 
                 ZStack {
-                    Circle()
-                        .fill(backgroundFill)
-                        .frame(width: 36, height: 36)
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(Color.secondary.opacity(0.1))
+                        .frame(width: 36, height: 60)
                     
                     if workouts.isEmpty {
-                        Image(systemName: "moon.fill")
-                            .font(.caption2)
-                            .foregroundStyle(.secondary)
+                        Image(systemName: "figure.mind.and.body")
+                            .font(.system(size: 16))
+                            .foregroundStyle(.secondary.opacity(0.5))
                     } else {
-                        VStack(spacing: 2) {
-                            ForEach(Array(workouts.prefix(3).enumerated()), id: \.offset) { _, workout in
-                                Circle()
-                                    .fill(workout.completed ? Color.green : Color.accentColor)
-                                    .frame(width: 4, height: 4)
-                            }
+                        VStack(spacing: 0) {
+                            workoutIndicator(for: .morning)
+                            workoutIndicator(for: .daytime)
+                            workoutIndicator(for: .evening)
                         }
+                        .frame(width: 36, height: 60)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
                     }
                     
                     if isToday {
-                        Circle()
+                        RoundedRectangle(cornerRadius: 6)
                             .stroke(Color.accentColor, lineWidth: 2)
-                            .frame(width: 36, height: 36)
+                            .frame(width: 36, height: 60)
                     }
                 }
-                
-                Text(dayNumber)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
             }
             .frame(maxWidth: .infinity)
+        }
+    }
+    
+    @ViewBuilder
+    private func workoutIndicator(for timeSlot: TimeSlot) -> some View {
+        let workout = workouts.first(where: { $0.timeSlot == timeSlot })
+        
+        if let workout = workout {
+            Rectangle()
+                .fill(colorForCategory(workout.category))
+                .frame(maxHeight: .infinity)
+        } else {
+            Color.clear
+                .frame(maxHeight: .infinity)
+        }
+    }
+    
+    private func colorForCategory(_ category: Category) -> Color {
+        switch category {
+        case .gym:
+            return Color.blue.opacity(0.4)
+        case .run:
+            return Color.orange.opacity(0.4)
+        case .bike:
+            return Color.green.opacity(0.4)
+        case .swim:
+            return Color.cyan.opacity(0.4)
+        case .hiit:
+            return Color.red.opacity(0.4)
         }
     }
     
@@ -129,19 +144,6 @@ private struct DayIndicatorView: View {
         let formatter = DateFormatter()
         formatter.dateFormat = "E"
         return String(formatter.string(from: date).prefix(1))
-    }
-    
-    private var dayNumber: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "d"
-        return formatter.string(from: date)
-    }
-    
-    private var backgroundFill: Color {
-        if workouts.isEmpty {
-            return Color.secondary.opacity(0.1)
-        }
-        return Color.accentColor.opacity(0.15)
     }
 }
 
