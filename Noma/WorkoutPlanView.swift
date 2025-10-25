@@ -41,6 +41,11 @@ struct WorkoutPlanView: View {
                 }
                 .background(Color(.systemGroupedBackground))
                 .navigationTitle("Training Plan")
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        AIAssistantButton()
+                    }
+                }
             }
         }
     }

@@ -57,6 +57,11 @@ struct WorkoutDetailView: View {
         .background(Color(.systemGroupedBackground))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                AIAssistantButton()
+            }
+        }
     }
     
     private var categoryDisplay: String {
