@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var search: String = ""
-
     var body: some View {
         TabView {
             Tab("Training", systemImage: "calendar") {
@@ -25,16 +23,20 @@ struct ContentView: View {
                 ProfilePlaceholder()
                     .navigationTitle("Profile")
             }
-
-            Tab("AI", systemImage: "sparkles", role: .search) {
-                NavigationStack {
-                    AIActionPlaceholder()
-                        .navigationTitle("Coach")
-                }
-            }
         }
-        // Bind the AI-Action Button to searchable; this activates when the search-role tab is invoked.
-        .searchable(text: $search, placement: .automatic, prompt: Text("Ask your coach…"))
+        // Use minimize behavior on supported OS versions; no-op on older versions
+        .modifier(TabBarMinimizeIfAvailable())
+    }
+}
+
+// A small helper to keep the view body clean and handle availability in one place.
+private struct TabBarMinimizeIfAvailable: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26.0, *) {
+            content.tabBarMinimizeBehavior(.onScrollDown)
+        } else {
+            content
+        }
     }
 }
 
@@ -95,24 +97,6 @@ private struct ProfilePlaceholder: View {
             .padding()
             .background(.background)
         }
-    }
-}
-
-private struct AIActionPlaceholder: View {
-    var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "sparkles")
-                .font(.system(size: 44, weight: .regular))
-                .foregroundStyle(.tint)
-            Text("AI Coach")
-                .font(.title2.weight(.semibold))
-            Text("Use the search button to ask, edit, or replan.\nVoice-first interactions can be added here.")
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.secondary)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
-        .background(.background)
     }
 }
 
