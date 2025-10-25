@@ -28,21 +28,9 @@ struct ContentView: View {
                     .navigationTitle("Settings")
             }   
         }
-        // Use minimize behavior on supported OS versions; no-op on older versions
-        .modifier(TabBarMinimizeIfAvailable())
     }
 }
 
-// A small helper to keep the view body clean and handle availability in one place.
-private struct TabBarMinimizeIfAvailable: ViewModifier {
-    func body(content: Content) -> some View {
-        if #available(iOS 26.0, *) {
-            content.tabBarMinimizeBehavior(.onScrollDown)
-        } else {
-            content
-        }
-    }
-}
 
 private struct WorkoutPlanPlaceholder: View {
     var body: some View {
