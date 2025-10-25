@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "workout-1",
+    "date": "2025-10-27",
+    "timeSlot": "evening",
+    "title": "Volume Push",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_push"
+    },
+    "duration": 45,
+    "completed": false,
+    "explanation": "Starting your week with a volume push session to build upper body strength and muscle endurance. This workout focuses on progressive overload while maintaining proper form. The 3-round structure allows for adequate volume without excessive fatigue.",
+    "exerciseRounds": [
+      {
+        "id": "round-1-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Push + Legs block combines upper body pressing with lower body strength. This pairing allows for efficient training while maintaining intensity.",
+        "exercises": [
+          {
+            "id": "ex-1-1-1",
+            "name": "Bench Press",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 60
+            },
+            "rest": 30,
+            "explanation": "Primary horizontal pushing movement for chest, shoulders, and triceps. Start with 60kg to establish baseline strength."
+          },
+          {
+            "id": "ex-1-1-2",
+            "name": "Bulgarian Split Squats",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 20
+            },
+            "rest": 0,
+            "explanation": "Unilateral leg exercise that builds stability and strength. The 20kg dumbbell adds resistance while maintaining balance focus."
+          }
+        ]
+      },
+      {
+        "id": "round-1-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Core block targets posterior chain and core stability. This combination supports posture and overall strength balance.",
+        "exercises": [
+          {
+            "id": "ex-1-2-1",
+            "name": "Pull-ups",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 6
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Vertical pulling movement for latissimus dorsi and biceps. Bodyweight focus on quality over quantity."
+          },
+          {
+            "id": "ex-1-2-2",
+            "name": "Hanging Leg Raises",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Core stability exercise targeting lower abs and hip flexors. RPE 7 ensures controlled movement quality."
+          }
+        ]
+      },
+      {
+        "id": "round-1-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Power + Conditioning block combines explosive movements with cardio elements. This builds athleticism and work capacity.",
+        "exercises": [
+          {
+            "id": "ex-1-3-1",
+            "name": "Box Jumps",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Plyometric exercise for power development and coordination. RPE 8 ensures explosive intent on each rep."
+          },
+          {
+            "id": "ex-1-3-2",
+            "name": "Dips",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Compound pushing movement for triceps and chest. Bodyweight focus on controlled movement and full range of motion."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-2",
+    "date": "2025-10-28",
+    "timeSlot": "morning",
+    "title": "Base Run Z2",
+    "category": {
+      "type": "run",
+      "subcategory": "base_z2"
+    },
+    "duration": 50,
+    "completed": false,
+    "explanation": "Aerobic base building run in Zone 2 heart rate. This builds cardiovascular endurance and fat oxidation capacity. The 8km distance provides adequate volume without compromising recovery from yesterday's strength session.",
+    "exerciseRounds": [
+      {
+        "id": "round-2-1",
+        "order": 1,
+        "rounds": 1,
+        "restBetweenRounds": 0,
+        "explanation": "Continuous aerobic effort to build base fitness and recovery capacity.",
+        "exercises": [
+          {
+            "id": "ex-2-1-1",
+            "name": "Easy Run",
+            "order": 1,
+            "volume": {
+              "type": "distance",
+              "kilometers": 8
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 140
+            },
+            "rest": null,
+            "explanation": "Zone 2 running at 140 BPM builds aerobic base and improves fat oxidation. Should feel conversational pace."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-3",
+    "date": "2025-10-29",
+    "timeSlot": "evening",
+    "title": "Volume Pull",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_pull"
+    },
+    "duration": 45,
+    "completed": false,
+    "explanation": "Volume pull session to balance the pushing movements from Monday. This workout targets the posterior chain and pulling muscles, ensuring balanced development and injury prevention.",
+    "exerciseRounds": [
+      {
+        "id": "round-3-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Legs block focuses on posterior chain development and hip hinge patterns.",
+        "exercises": [
+          {
+            "id": "ex-3-1-1",
+            "name": "Bent-Over Rows",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 50
+            },
+            "rest": 30,
+            "explanation": "Horizontal pulling movement for rhomboids, middle traps, and lats. 50kg provides moderate resistance for volume work."
+          },
+          {
+            "id": "ex-3-1-2",
+            "name": "Romanian Deadlifts",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 40
+            },
+            "rest": 0,
+            "explanation": "Hip hinge movement targeting hamstrings and glutes. Lighter weight focuses on movement quality and muscle activation."
+          }
+        ]
+      },
+      {
+        "id": "round-3-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Core block emphasizes upper back strength and core stability.",
+        "exercises": [
+          {
+            "id": "ex-3-2-1",
+            "name": "Lat Pulldowns",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 35
+            },
+            "rest": 30,
+            "explanation": "Vertical pulling movement targeting lats and biceps. 35kg allows for controlled movement and full range of motion."
+          },
+          {
+            "id": "ex-3-2-2",
+            "name": "Plank",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 45
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Isometric core exercise for stability and endurance. 45 seconds at RPE 7 builds core strength without compromising form."
+          }
+        ]
+      },
+      {
+        "id": "round-3-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Power + Conditioning block combines explosive pulling with cardio elements.",
+        "exercises": [
+          {
+            "id": "ex-3-3-1",
+            "name": "Kettlebell Swings",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 15
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 16
+            },
+            "rest": 30,
+            "explanation": "Hip hinge power movement for posterior chain development. 16kg kettlebell provides explosive training stimulus."
+          },
+          {
+            "id": "ex-3-3-2",
+            "name": "Battle Ropes",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "High-intensity conditioning exercise for upper body and core. 30 seconds at RPE 8 builds work capacity."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-4",
+    "date": "2025-10-30",
+    "timeSlot": "morning",
+    "title": "HIIT Cardio+Strength",
+    "category": {
+      "type": "hiit",
+      "subcategory": "strength_cardio"
+    },
+    "duration": 25,
+    "completed": false,
+    "explanation": "High-intensity interval training combining cardio and strength elements. This workout improves both aerobic and anaerobic capacity while building muscular endurance. The 30s work/30s rest format maximizes metabolic stress.",
+    "exerciseRounds": [
+      {
+        "id": "round-4-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Cardio + Strength block combines high-intensity cardio with bodyweight strength movements.",
+        "exercises": [
+          {
+            "id": "ex-4-1-1",
+            "name": "Burpees",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Full-body high-intensity exercise combining squat, push-up, and jump. 30 seconds at RPE 9 maximizes cardiovascular stress."
+          },
+          {
+            "id": "ex-4-1-2",
+            "name": "Mountain Climbers",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "High-intensity cardio exercise targeting core and legs. 30 seconds at RPE 8 maintains intensity while building endurance."
+          }
+        ]
+      },
+      {
+        "id": "round-4-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Strength + Cardio block focuses on muscular endurance with cardio elements.",
+        "exercises": [
+          {
+            "id": "ex-4-2-1",
+            "name": "Push-up to T",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Dynamic push-up variation with rotational element. 30 seconds at RPE 8 builds upper body strength and stability."
+          },
+          {
+            "id": "ex-4-2-2",
+            "name": "Jump Squats",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Explosive lower body exercise for power and endurance. 30 seconds at RPE 9 maximizes metabolic demand."
+          }
+        ]
+      },
+      {
+        "id": "round-4-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Core + Cardio block targets core stability with high-intensity cardio finish.",
+        "exercises": [
+          {
+            "id": "ex-4-3-1",
+            "name": "Russian Twists",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Rotational core exercise for obliques and stability. 30 seconds at RPE 7 maintains quality movement under fatigue."
+          },
+          {
+            "id": "ex-4-3-2",
+            "name": "High Knees",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "High-intensity cardio exercise for legs and coordination. 30 seconds at RPE 9 provides maximum metabolic challenge."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-5",
+    "date": "2025-10-31",
+    "timeSlot": "evening",
+    "title": "Volume Push",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_push"
+    },
+    "duration": 45,
+    "completed": false,
+    "explanation": "Second volume push session of the week with slight progression. Building on Monday's workout, this session increases intensity while maintaining volume. The 48-hour rest period allows for adequate recovery.",
+    "exerciseRounds": [
+      {
+        "id": "round-5-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Push + Legs block with increased intensity from Monday's session.",
+        "exercises": [
+          {
+            "id": "ex-5-1-1",
+            "name": "Bench Press",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 62.5
+            },
+            "rest": 30,
+            "explanation": "Progressive overload: 2.5kg increase from Monday. This 4% increase maintains strength progression while allowing for proper form."
+          },
+          {
+            "id": "ex-5-1-2",
+            "name": "Bulgarian Split Squats",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 22.5
+            },
+            "rest": 0,
+            "explanation": "2.5kg increase from Monday maintains progressive overload while building unilateral strength and stability."
+          }
+        ]
+      },
+      {
+        "id": "round-5-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Core block with maintained intensity and focus on movement quality.",
+        "exercises": [
+          {
+            "id": "ex-5-2-1",
+            "name": "Pull-ups",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 6
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining bodyweight focus to ensure quality movement and full range of motion. Strength will develop through consistency."
+          },
+          {
+            "id": "ex-5-2-2",
+            "name": "Hanging Leg Raises",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Slight increase in reps from Monday (10→12) provides progressive overload for core strength development."
+          }
+        ]
+      },
+      {
+        "id": "round-5-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Power + Conditioning block with maintained intensity and focus on explosive movement quality.",
+        "exercises": [
+          {
+            "id": "ex-5-3-1",
+            "name": "Box Jumps",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining RPE 8 ensures explosive intent on each rep while building power and coordination."
+          },
+          {
+            "id": "ex-5-3-2",
+            "name": "Dips",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Increase in reps from Monday (10→12) provides progressive overload while maintaining movement quality."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-6",
+    "date": "2025-11-01",
+    "timeSlot": "morning",
+    "title": "Interval Run Z4",
+    "category": {
+      "type": "run",
+      "subcategory": "intervals_z4_z5"
+    },
+    "duration": 40,
+    "completed": false,
+    "explanation": "High-intensity interval training to improve VO2 max and lactate threshold. The 6×800m intervals at Zone 4 provide optimal stimulus for cardiovascular improvement while building mental toughness.",
+    "exerciseRounds": [
+      {
+        "id": "round-6-1",
+        "order": 1,
+        "rounds": 1,
+        "restBetweenRounds": 0,
+        "explanation": "Warm-up phase to prepare the body for high-intensity work.",
+        "exercises": [
+          {
+            "id": "ex-6-1-1",
+            "name": "Easy Warm-up",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 600
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 120
+            },
+            "rest": null,
+            "explanation": "Easy pace warm-up to increase heart rate and prepare muscles for high-intensity work."
+          }
+        ]
+      },
+      {
+        "id": "round-6-2",
+        "order": 2,
+        "rounds": 6,
+        "restBetweenRounds": 90,
+        "explanation": "Main interval work at Zone 4 heart rate for VO2 max development.",
+        "exercises": [
+          {
+            "id": "ex-6-2-1",
+            "name": "800m Interval",
+            "order": 1,
+            "volume": {
+              "type": "distance",
+              "kilometers": 0.8
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 170
+            },
+            "rest": 90,
+            "explanation": "800m at Zone 4 (170 BPM) provides optimal stimulus for VO2 max improvement. Should feel hard but sustainable."
+          }
+        ]
+      },
+      {
+        "id": "round-6-3",
+        "order": 3,
+        "rounds": 1,
+        "restBetweenRounds": 0,
+        "explanation": "Cool-down phase to gradually return heart rate to baseline.",
+        "exercises": [
+          {
+            "id": "ex-6-3-1",
+            "name": "Easy Cool-down",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 600
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 120
+            },
+            "rest": null,
+            "explanation": "Easy pace cool-down to gradually return heart rate to baseline and promote recovery."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-7",
+    "date": "2025-11-02",
+    "timeSlot": "morning",
+    "title": "Volume Pull",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_pull"
+    },
+    "duration": 45,
+    "completed": false,
+    "explanation": "Final volume pull session of the week with slight progression. This workout balances the week's training load while building on Wednesday's session. The 48-hour rest from Friday's push session ensures adequate recovery.",
+    "exerciseRounds": [
+      {
+        "id": "round-7-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Legs block with increased intensity from Wednesday's session.",
+        "exercises": [
+          {
+            "id": "ex-7-1-1",
+            "name": "Bent-Over Rows",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 52.5
+            },
+            "rest": 30,
+            "explanation": "2.5kg increase from Wednesday maintains progressive overload while building upper back strength."
+          },
+          {
+            "id": "ex-7-1-2",
+            "name": "Romanian Deadlifts",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 42.5
+            },
+            "rest": 0,
+            "explanation": "2.5kg increase from Wednesday maintains progressive overload while focusing on movement quality."
+          }
+        ]
+      },
+      {
+        "id": "round-7-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Core block with maintained intensity and focus on movement quality.",
+        "exercises": [
+          {
+            "id": "ex-7-2-1",
+            "name": "Lat Pulldowns",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 37.5
+            },
+            "rest": 30,
+            "explanation": "2.5kg increase from Wednesday maintains progressive overload while building lat strength."
+          },
+          {
+            "id": "ex-7-2-2",
+            "name": "Plank",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 50
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "5-second increase from Wednesday (45→50) provides progressive overload for core endurance."
+          }
+        ]
+      },
+      {
+        "id": "round-7-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Power + Conditioning block with maintained intensity and focus on explosive movement quality.",
+        "exercises": [
+          {
+            "id": "ex-7-3-1",
+            "name": "Kettlebell Swings",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 15
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 18
+            },
+            "rest": 30,
+            "explanation": "2kg increase from Wednesday maintains progressive overload while building explosive power."
+          },
+          {
+            "id": "ex-7-3-2",
+            "name": "Battle Ropes",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 35
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "5-second increase from Wednesday (30→35) provides progressive overload for work capacity."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-8",
+    "date": "2025-11-03",
+    "timeSlot": "evening",
+    "title": "Volume Push",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_push"
+    },
+    "duration": 45,
+    "completed": false,
+    "explanation": "Week 2 begins with continued progressive overload on volume push. Building on last week's sessions, this workout increases intensity while maintaining volume. The weekend rest allows for full recovery and adaptation.",
+    "exerciseRounds": [
+      {
+        "id": "round-8-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Push + Legs block with continued progression from Week 1.",
+        "exercises": [
+          {
+            "id": "ex-8-1-1",
+            "name": "Bench Press",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 65
+            },
+            "rest": 30,
+            "explanation": "2.5kg increase from Friday (62.5→65) continues progressive overload. This 4% increase maintains strength progression."
+          },
+          {
+            "id": "ex-8-1-2",
+            "name": "Bulgarian Split Squats",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 25
+            },
+            "rest": 0,
+            "explanation": "2.5kg increase from Friday (22.5→25) continues progressive overload while building unilateral strength."
+          }
+        ]
+      },
+      {
+        "id": "round-8-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Core block with maintained intensity and focus on movement quality.",
+        "exercises": [
+          {
+            "id": "ex-8-2-1",
+            "name": "Pull-ups",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 6
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining bodyweight focus to ensure quality movement and full range of motion."
+          },
+          {
+            "id": "ex-8-2-2",
+            "name": "Hanging Leg Raises",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Maintaining reps and RPE from Friday to ensure movement quality and proper progression."
+          }
+        ]
+      },
+      {
+        "id": "round-8-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Power + Conditioning block with maintained intensity and focus on explosive movement quality.",
+        "exercises": [
+          {
+            "id": "ex-8-3-1",
+            "name": "Box Jumps",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining RPE 8 ensures explosive intent on each rep while building power."
+          },
+          {
+            "id": "ex-8-3-2",
+            "name": "Dips",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Maintaining reps from Friday to ensure movement quality and proper progression."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-9",
+    "date": "2025-11-04",
+    "timeSlot": "morning",
+    "title": "Base Run Z2",
+    "category": {
+      "type": "run",
+      "subcategory": "base_z2"
+    },
+    "duration": 60,
+    "completed": false,
+    "explanation": "Progressive aerobic base building run in Zone 2 heart rate. The 10km distance (up from 8km last week) provides increased volume while maintaining aerobic development. This builds on last week's base fitness gains.",
+    "exerciseRounds": [
+      {
+        "id": "round-9-1",
+        "order": 1,
+        "rounds": 1,
+        "restBetweenRounds": 0,
+        "explanation": "Continuous aerobic effort to build base fitness and recovery capacity with increased volume.",
+        "exercises": [
+          {
+            "id": "ex-9-1-1",
+            "name": "Easy Run",
+            "order": 1,
+            "volume": {
+              "type": "distance",
+              "kilometers": 10
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 140
+            },
+            "rest": null,
+            "explanation": "Zone 2 running at 140 BPM for 10km builds aerobic base and improves fat oxidation. 2km increase from last week provides progressive overload."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-10",
+    "date": "2025-11-05",
+    "timeSlot": "evening",
+    "title": "Volume Pull",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_pull"
+    },
+    "duration": 45,
+    "completed": false,
+    "explanation": "Week 2 volume pull session with continued progression. Building on last week's sessions, this workout increases intensity while maintaining volume. The 48-hour rest from Monday's push session ensures adequate recovery.",
+    "exerciseRounds": [
+      {
+        "id": "round-10-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Legs block with continued progression from Week 1.",
+        "exercises": [
+          {
+            "id": "ex-10-1-1",
+            "name": "Bent-Over Rows",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 55
+            },
+            "rest": 30,
+            "explanation": "2.5kg increase from Sunday (52.5→55) continues progressive overload while building upper back strength."
+          },
+          {
+            "id": "ex-10-1-2",
+            "name": "Romanian Deadlifts",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 45
+            },
+            "rest": 0,
+            "explanation": "2.5kg increase from Sunday (42.5→45) continues progressive overload while focusing on movement quality."
+          }
+        ]
+      },
+      {
+        "id": "round-10-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Core block with continued progression from Week 1.",
+        "exercises": [
+          {
+            "id": "ex-10-2-1",
+            "name": "Lat Pulldowns",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 40
+            },
+            "rest": 30,
+            "explanation": "2.5kg increase from Sunday (37.5→40) continues progressive overload while building lat strength."
+          },
+          {
+            "id": "ex-10-2-2",
+            "name": "Plank",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 55
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "5-second increase from Sunday (50→55) continues progressive overload for core endurance."
+          }
+        ]
+      },
+      {
+        "id": "round-10-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Power + Conditioning block with continued progression from Week 1.",
+        "exercises": [
+          {
+            "id": "ex-10-3-1",
+            "name": "Kettlebell Swings",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 15
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 20
+            },
+            "rest": 30,
+            "explanation": "2kg increase from Sunday (18→20) continues progressive overload while building explosive power."
+          },
+          {
+            "id": "ex-10-3-2",
+            "name": "Battle Ropes",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 40
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "5-second increase from Sunday (35→40) continues progressive overload for work capacity."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-11",
+    "date": "2025-11-06",
+    "timeSlot": "daytime",
+    "title": "HIIT Cardio+Strength",
+    "category": {
+      "type": "hiit",
+      "subcategory": "strength_cardio"
+    },
+    "duration": 25,
+    "completed": false,
+    "explanation": "Week 2 HIIT session with maintained intensity and focus on work capacity. The daytime slot provides variety in training schedule while maintaining the same high-intensity stimulus. This builds on last week's metabolic adaptations.",
+    "exerciseRounds": [
+      {
+        "id": "round-11-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Cardio + Strength block with maintained intensity from Week 1.",
+        "exercises": [
+          {
+            "id": "ex-11-1-1",
+            "name": "Burpees",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining 30 seconds at RPE 9 to ensure maximum cardiovascular stress and metabolic adaptation."
+          },
+          {
+            "id": "ex-11-1-2",
+            "name": "Mountain Climbers",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Maintaining 30 seconds at RPE 8 to build endurance while maintaining intensity."
+          }
+        ]
+      },
+      {
+        "id": "round-11-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Strength + Cardio block with maintained intensity from Week 1.",
+        "exercises": [
+          {
+            "id": "ex-11-2-1",
+            "name": "Push-up to T",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining 30 seconds at RPE 8 to build upper body strength and stability."
+          },
+          {
+            "id": "ex-11-2-2",
+            "name": "Jump Squats",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Maintaining 30 seconds at RPE 9 to maximize metabolic demand and power development."
+          }
+        ]
+      },
+      {
+        "id": "round-11-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Core + Cardio block with maintained intensity from Week 1.",
+        "exercises": [
+          {
+            "id": "ex-11-3-1",
+            "name": "Russian Twists",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining 30 seconds at RPE 7 to ensure quality movement under fatigue."
+          },
+          {
+            "id": "ex-11-3-2",
+            "name": "High Knees",
+            "order": 2,
+            "volume": {
+              "type": "duration",
+              "seconds": 30
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Maintaining 30 seconds at RPE 9 to provide maximum metabolic challenge and coordination."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-12",
+    "date": "2025-11-07",
+    "timeSlot": "evening",
+    "title": "Volume Push",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_push"
+    },
+    "duration": 45,
+    "completed": false,
+    "explanation": "Week 2 second volume push session with continued progression. Building on Monday's session, this workout increases intensity while maintaining volume. The 48-hour rest from Wednesday's pull session ensures adequate recovery.",
+    "exerciseRounds": [
+      {
+        "id": "round-12-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Push + Legs block with continued progression from Monday's session.",
+        "exercises": [
+          {
+            "id": "ex-12-1-1",
+            "name": "Bench Press",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 67.5
+            },
+            "rest": 30,
+            "explanation": "2.5kg increase from Monday (65→67.5) continues progressive overload. This 4% increase maintains strength progression."
+          },
+          {
+            "id": "ex-12-1-2",
+            "name": "Bulgarian Split Squats",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 27.5
+            },
+            "rest": 0,
+            "explanation": "2.5kg increase from Monday (25→27.5) continues progressive overload while building unilateral strength."
+          }
+        ]
+      },
+      {
+        "id": "round-12-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Pull + Core block with maintained intensity and focus on movement quality.",
+        "exercises": [
+          {
+            "id": "ex-12-2-1",
+            "name": "Pull-ups",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 6
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining bodyweight focus to ensure quality movement and full range of motion."
+          },
+          {
+            "id": "ex-12-2-2",
+            "name": "Hanging Leg Raises",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Maintaining reps and RPE from Monday to ensure movement quality and proper progression."
+          }
+        ]
+      },
+      {
+        "id": "round-12-3",
+        "order": 3,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Power + Conditioning block with maintained intensity and focus on explosive movement quality.",
+        "exercises": [
+          {
+            "id": "ex-12-3-1",
+            "name": "Box Jumps",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 8
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 30,
+            "explanation": "Maintaining RPE 8 ensures explosive intent on each rep while building power."
+          },
+          {
+            "id": "ex-12-3-2",
+            "name": "Dips",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 0
+            },
+            "rest": 0,
+            "explanation": "Maintaining reps from Monday to ensure movement quality and proper progression."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout-13",
+    "date": "2025-11-08",
+    "timeSlot": "morning",
+    "title": "Interval Run Z5",
+    "category": {
+      "type": "run",
+      "subcategory": "intervals_z4_z5"
+    },
+    "duration": 35,
+    "completed": false,
+    "explanation": "High-intensity interval training to improve VO2 max and anaerobic capacity. The 8×400m intervals at Zone 5 provide maximum stimulus for cardiovascular improvement while building mental toughness. This progression from last week's 6×800m Z4 increases intensity.",
+    "exerciseRounds": [
+      {
+        "id": "round-13-1",
+        "order": 1,
+        "rounds": 1,
+        "restBetweenRounds": 0,
+        "explanation": "Warm-up phase to prepare the body for maximum intensity work.",
+        "exercises": [
+          {
+            "id": "ex-13-1-1",
+            "name": "Easy Warm-up",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 600
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 120
+            },
+            "rest": null,
+            "explanation": "Easy pace warm-up to increase heart rate and prepare muscles for maximum intensity work."
+          }
+        ]
+      },
+      {
+        "id": "round-13-2",
+        "order": 2,
+        "rounds": 8,
+        "restBetweenRounds": 90,
+        "explanation": "Main interval work at Zone 5 heart rate for maximum VO2 max development.",
+        "exercises": [
+          {
+            "id": "ex-13-2-1",
+            "name": "400m Interval",
+            "order": 1,
+            "volume": {
+              "type": "distance",
+              "kilometers": 0.4
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 180
+            },
+            "rest": 90,
+            "explanation": "400m at Zone 5 (180 BPM) provides maximum stimulus for VO2 max improvement. Should feel very hard but sustainable for the duration."
+          }
+        ]
+      },
+      {
+        "id": "round-13-3",
+        "order": 3,
+        "rounds": 1,
+        "restBetweenRounds": 0,
+        "explanation": "Cool-down phase to gradually return heart rate to baseline.",
+        "exercises": [
+          {
+            "id": "ex-13-3-1",
+            "name": "Easy Cool-down",
+            "order": 1,
+            "volume": {
+              "type": "duration",
+              "seconds": 600
+            },
+            "intensity": {
+              "type": "heart_rate",
+              "targetBpm": 120
+            },
+            "rest": null,
+            "explanation": "Easy pace cool-down to gradually return heart rate to baseline and promote recovery."
+          }
+        ]
+      }
+    ]
+  }
+]
