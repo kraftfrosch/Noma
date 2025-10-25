@@ -12,7 +12,7 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            Tab("Plan", systemImage: "calendar") {
+            Tab("Training", systemImage: "calendar") {
                 WorkoutPlanView()
             }
 

@@ -22,28 +22,25 @@ struct WorkoutPlanView: View {
                 )
             } else {
                 ScrollView {
-                    LazyVStack(spacing: 20, pinnedViews: [.sectionHeaders]) {
-                        Section {
-                            // Grouped workouts by date
-                            ForEach(groupedDates, id: \.date) { dateGroup in
-                                WorkoutDateSection(
-                                    date: dateGroup.date,
-                                    workouts: dateGroup.workouts,
-                                    dataManager: dataManager
-                                )
-                                .padding(.horizontal, 16)
-                            }
-                            .padding(.bottom, 32)
-                        } header: {
-                            WeeklyOverviewComponent(workouts: dataManager.workouts, isCollapsed: true)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 8)
-                                .background(.regularMaterial)
+                    LazyVStack(spacing: 20) {
+                        WeeklyOverviewComponent(workouts: dataManager.workouts)
+                            .padding(.horizontal, 16)
+                            .padding(.top, 16)
+                        
+                        // Grouped workouts by date
+                        ForEach(groupedDates, id: \.date) { dateGroup in
+                            WorkoutDateSection(
+                                date: dateGroup.date,
+                                workouts: dateGroup.workouts,
+                                dataManager: dataManager
+                            )
+                            .padding(.horizontal, 16)
                         }
+                        .padding(.bottom, 32)
                     }
                 }
                 .background(Color(.systemGroupedBackground))
-                .navigationTitle("Plan")
+                .navigationTitle("Training Plan")
             }
         }
     }

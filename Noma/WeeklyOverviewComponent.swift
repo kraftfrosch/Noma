@@ -10,52 +10,36 @@ import SwiftUI
 struct WeeklyOverviewComponent: View {
     let workouts: [Workout]
     let startOfWeek: Date
-    let isCollapsed: Bool
     
-    init(workouts: [Workout], startOfWeek: Date? = nil, isCollapsed: Bool = false) {
+    init(workouts: [Workout], startOfWeek: Date? = nil) {
         self.workouts = workouts
         self.startOfWeek = startOfWeek ?? Calendar.current.startOfWeek(for: Date())
-        self.isCollapsed = isCollapsed
     }
     
     var body: some View {
-        if isCollapsed {
-            HStack(spacing: 6) {
+        VStack(spacing: 12) {
+            HStack {
+                Text("This Week")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                
+                Spacer()
+            }
+            
+            HStack(spacing: 8) {
                 ForEach(0..<7, id: \.self) { dayOffset in
                     let date = Calendar.current.date(byAdding: .day, value: dayOffset, to: startOfWeek) ?? startOfWeek
                     DayIndicatorView(
                         date: date,
                         workouts: workoutsFor(date: date),
                         isToday: Calendar.current.isDateInToday(date),
-                        isCompact: true
+                        isCompact: false
                     )
                 }
             }
-        } else {
-            VStack(spacing: 12) {
-                HStack {
-                    Text("This Week")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.secondary)
-                    
-                    Spacer()
-                }
-                
-                HStack(spacing: 8) {
-                    ForEach(0..<7, id: \.self) { dayOffset in
-                        let date = Calendar.current.date(byAdding: .day, value: dayOffset, to: startOfWeek) ?? startOfWeek
-                        DayIndicatorView(
-                            date: date,
-                            workouts: workoutsFor(date: date),
-                            isToday: Calendar.current.isDateInToday(date),
-                            isCompact: false
-                        )
-                    }
-                }
-            }
-            .padding(16)
-            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
         }
+        .padding(16)
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
     }
     
     private func workoutsFor(date: Date) -> [Workout] {
@@ -198,7 +182,7 @@ extension Calendar {
         )
     ]
     
-    return WeeklyOverviewComponent(workouts: sampleWorkouts, isCollapsed: false)
+    return WeeklyOverviewComponent(workouts: sampleWorkouts)
         .padding()
 }
 
