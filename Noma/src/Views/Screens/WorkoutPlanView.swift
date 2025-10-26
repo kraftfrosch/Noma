@@ -14,7 +14,7 @@ struct WorkoutPlanView: View {
     @State private var selectedDate = Calendar.current.startOfDay(for: Date())
     @State private var isProgrammaticScroll = false
     @State private var headerHeight: CGFloat = 0
-    private let headerVisibilityBuffer: CGFloat = 40
+    private let headerVisibilityBuffer: CGFloat = 32
     @FocusState private var isChatInputFocused: Bool
     
     var body: some View {
@@ -36,7 +36,6 @@ struct WorkoutPlanView: View {
                                     LazyVStack(spacing: 20) {
                                         // Grouped workouts by date
                                         ForEach(groupedDates, id: \.date) { dateGroup in
-                                            let isSelected = Calendar.current.isDate(dateGroup.date, inSameDayAs: selectedDate)
                                             WorkoutDateSection(
                                                 date: dateGroup.date,
                                                 workouts: dateGroup.workouts,
@@ -46,20 +45,15 @@ struct WorkoutPlanView: View {
                                             .padding(.vertical, 12)
                                             .background(
                                                 GeometryReader { sectionGeometry in
-                                                    Color.clear
-                                                        .preference(
-                                                            key: WorkoutDayOffsetPreferenceKey.self,
-                                                            value: [dateGroup.date: sectionGeometry.frame(in: .named("workoutScroll")).minY]
-                                                        )
+                                                    let frame = sectionGeometry.frame(in: .named("workoutScroll"))
+                                                    Color.clear.preference(
+                                                        key: WorkoutDayMetricsPreferenceKey.self,
+                                                        value: [dateGroup.date: WorkoutDayMetrics(top: frame.minY, bottom: frame.maxY)]
+                                                    )
                                                 }
-                                            )
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 12)
-                                                    .fill(isSelected ? Color(.secondarySystemFill) : Color.clear)
                                             )
                                             .id(dateGroup.date)
                                         }
-                                        .padding(.bottom, 32)
                                     }
                                     .padding(.top, 16)
                                 } header: {
@@ -88,7 +82,7 @@ struct WorkoutPlanView: View {
                             }
                         }
                         .coordinateSpace(name: "workoutScroll")
-                        .onPreferenceChange(WorkoutDayOffsetPreferenceKey.self) { values in
+                        .onPreferenceChange(WorkoutDayMetricsPreferenceKey.self) { values in
                             updateSelection(with: values)
                         }
                         .onPreferenceChange(WeeklyOverviewHeightPreferenceKey.self) { newHeight in
@@ -142,7 +136,7 @@ struct WorkoutPlanView: View {
         let normalizedDate = Calendar.current.startOfDay(for: date)
         isProgrammaticScroll = true
         selectedDate = normalizedDate
-        let headerCompensation = (headerHeight > 0 ? headerHeight : 140) + headerVisibilityBuffer
+        let headerCompensation = effectiveHeaderHeight
         let denominator = max(containerHeight, 1)
         let anchorY = min(max(headerCompensation / denominator, 0), 1)
         let anchor = UnitPoint(x: 0.5, y: anchorY)
@@ -157,36 +151,30 @@ struct WorkoutPlanView: View {
         }
     }
     
-    private func updateSelection(with offsets: [Date: CGFloat]) {
+    private func updateSelection(with metrics: [Date: WorkoutDayMetrics]) {
         guard !isProgrammaticScroll else { return }
-        guard let newDate = topVisibleDate(from: offsets, headerHeight: headerHeight) else { return }
+        guard let newDate = topVisibleDate(from: metrics) else { return }
         if !Calendar.current.isDate(newDate, inSameDayAs: selectedDate) {
             selectedDate = Calendar.current.startOfDay(for: newDate)
         }
     }
     
-    private func topVisibleDate(from offsets: [Date: CGFloat], headerHeight: CGFloat) -> Date? {
-        let effectiveHeaderHeight = (headerHeight > 0 ? headerHeight : 140) + headerVisibilityBuffer
-        let adjustedOffsets = offsets.mapValues { $0 - effectiveHeaderHeight }
-        let threshold: CGFloat = 20
-        let candidates = adjustedOffsets
-            .filter { $0.value > -threshold }
-            .sorted { $0.value < $1.value }
-        if let best = candidates.first {
-            return best.key
+    private func topVisibleDate(from metrics: [Date: WorkoutDayMetrics]) -> Date? {
+        guard !metrics.isEmpty else { return nil }
+        let selectionLine = effectiveHeaderHeight
+        let sorted = metrics.sorted { $0.value.top < $1.value.top }
+        if let intersecting = sorted.first(where: { $0.value.top <= selectionLine && $0.value.bottom > selectionLine }) {
+            return intersecting.key
         }
-        if let closest = adjustedOffsets.min(by: { abs($0.value) < abs($1.value) }) {
-            return closest.key
+        if let next = sorted.first(where: { $0.value.top > selectionLine }) {
+            return next.key
         }
-        return nil
+        return sorted.last?.key
     }
-}
 
-private struct WorkoutDayOffsetPreferenceKey: PreferenceKey {
-    static var defaultValue: [Date: CGFloat] = [:]
-    
-    static func reduce(value: inout [Date: CGFloat], nextValue: () -> [Date: CGFloat]) {
-        value.merge(nextValue(), uniquingKeysWith: { $1 })
+    private var effectiveHeaderHeight: CGFloat {
+        let measured = headerHeight > 0 ? headerHeight : 140
+        return measured + headerVisibilityBuffer
     }
 }
 
@@ -195,6 +183,19 @@ private struct WeeklyOverviewHeightPreferenceKey: PreferenceKey {
     
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = max(value, nextValue())
+    }
+}
+
+private struct WorkoutDayMetrics: Equatable {
+    let top: CGFloat
+    let bottom: CGFloat
+}
+
+private struct WorkoutDayMetricsPreferenceKey: PreferenceKey {
+    static var defaultValue: [Date: WorkoutDayMetrics] = [:]
+    
+    static func reduce(value: inout [Date: WorkoutDayMetrics], nextValue: () -> [Date: WorkoutDayMetrics]) {
+        value.merge(nextValue(), uniquingKeysWith: { $1 })
     }
 }
 

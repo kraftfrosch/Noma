@@ -10,7 +10,7 @@ import SwiftUI
 struct RestDayCardView: View {
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: "moon.stars.fill")
+            Image(systemName: "figure.mind.and.body")
                 .font(.title2)
                 .foregroundStyle(.secondary)
             
@@ -27,7 +27,8 @@ struct RestDayCardView: View {
             Spacer()
         }
         .padding(16)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .background(.ultraThickMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 2)
     }
 }
 

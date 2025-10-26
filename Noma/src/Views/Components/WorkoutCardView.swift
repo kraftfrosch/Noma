@@ -51,7 +51,8 @@ struct WorkoutCardView: View {
                 .foregroundStyle(.secondary)
         }
         .padding(16)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .background(.ultraThickMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 2)
         .contentShape(Rectangle())
     }
     

@@ -45,7 +45,8 @@ struct WeeklyOverviewComponent: View {
             }
         }
         .padding(16)
-        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .background(.ultraThickMaterial, in: RoundedRectangle(cornerRadius: 12))
+        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 2)
     }
     
     private func workoutsFor(date: Date) -> [Workout] {
@@ -67,7 +68,7 @@ private struct DayIndicatorView: View {
         VStack(spacing: 6) {
             Text(dayLetter)
                 .font(.caption2.weight(.medium))
-                .foregroundStyle(isSelected || isToday ? .primary : .secondary)
+                .foregroundStyle(isSelected || isToday ? .primary : Color.primary.opacity(0.2))
             
             ZStack {
                 RoundedRectangle(cornerRadius: 6)
@@ -77,7 +78,7 @@ private struct DayIndicatorView: View {
                 if workouts.isEmpty {
                     Image(systemName: "figure.mind.and.body")
                         .font(.system(size: 16))
-                        .foregroundStyle(.secondary.opacity(0.5))
+                        .foregroundStyle(.secondary)
                 } else {
                     VStack(spacing: 0) {
                         workoutIndicator(for: .morning)
@@ -91,10 +92,6 @@ private struct DayIndicatorView: View {
                 if isToday {
                     RoundedRectangle(cornerRadius: 6)
                         .stroke(Color.accentColor, lineWidth: isSelected ? 3 : 2)
-                        .frame(width: 36, height: 60)
-                } else if isSelected {
-                    RoundedRectangle(cornerRadius: 6)
-                        .stroke(Color.accentColor.opacity(0.6), lineWidth: 2)
                         .frame(width: 36, height: 60)
                 }
             }
@@ -120,17 +117,21 @@ private struct DayIndicatorView: View {
     }
     
     private func colorForCategory(_ category: Category) -> Color {
+        baseColor(for: category).opacity(0.4)
+    }
+    
+    private func baseColor(for category: Category) -> Color {
         switch category {
         case .gym:
-            return Color.blue.opacity(0.4)
+            return Color(red: 1.0, green: 0.58, blue: 0.0)
         case .run:
-            return Color.orange.opacity(0.4)
+            return Color(red: 0.0, green: 0.48, blue: 1.0)
         case .bike:
-            return Color.green.opacity(0.4)
+            return Color(red: 0.69, green: 0.32, blue: 0.87)
         case .swim:
-            return Color.cyan.opacity(0.4)
+            return Color(red: 0.0, green: 0.78, blue: 0.85)
         case .hiit:
-            return Color.red.opacity(0.4)
+            return Color(red: 1.0, green: 0.23, blue: 0.19)
         }
     }
     
@@ -147,9 +148,9 @@ private struct DayIndicatorView: View {
     
     private var indicatorBackground: Color {
         if isSelected {
-            return Color.accentColor.opacity(0.18)
+            return Color.accentColor.opacity(0.15)
         }
-        return Color.secondary.opacity(0.1)
+        return Color(white: 0.5).opacity(0.15)
     }
 }
 

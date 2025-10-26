@@ -93,6 +93,99 @@
     ]
   },
   {
+    "id": "workout-pre-7",
+    "date": "2025-10-21",
+    "timeSlot": "morning",
+    "title": "Volume Legs",
+    "category": {
+      "type": "gym",
+      "subcategory": "volume_legs"
+    },
+    "duration": 50,
+    "completed": true,
+    "explanation": "Building leg strength and endurance with a focus on progressive overload. This session includes compound movements and unilateral work for balanced development.",
+    "exerciseRounds": [
+      {
+        "id": "round-pre7-1",
+        "order": 1,
+        "rounds": 3,
+        "restBetweenRounds": 120,
+        "explanation": "Compound leg movements focusing on strength and hypertrophy.",
+        "exercises": [
+          {
+            "id": "ex-pre7-1-1",
+            "name": "Back Squats",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 10
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 70
+            },
+            "rest": 45,
+            "explanation": "Primary compound movement for leg development."
+          },
+          {
+            "id": "ex-pre7-1-2",
+            "name": "Romanian Deadlifts",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 12
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 50
+            },
+            "rest": 0,
+            "explanation": "Posterior chain development with focus on hamstrings and glutes."
+          }
+        ]
+      },
+      {
+        "id": "round-pre7-2",
+        "order": 2,
+        "rounds": 3,
+        "restBetweenRounds": 90,
+        "explanation": "Accessory leg movements for balanced development.",
+        "exercises": [
+          {
+            "id": "ex-pre7-2-1",
+            "name": "Walking Lunges",
+            "order": 1,
+            "volume": {
+              "type": "reps",
+              "repetitions": 20
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 15
+            },
+            "rest": 30,
+            "explanation": "Unilateral leg work for stability and strength."
+          },
+          {
+            "id": "ex-pre7-2-2",
+            "name": "Leg Press",
+            "order": 2,
+            "volume": {
+              "type": "reps",
+              "repetitions": 15
+            },
+            "intensity": {
+              "type": "weight",
+              "kilogramms": 100
+            },
+            "rest": 0,
+            "explanation": "Additional volume for leg development with controlled movement."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "workout-pre-3",
     "date": "2025-10-21",
     "timeSlot": "evening",
